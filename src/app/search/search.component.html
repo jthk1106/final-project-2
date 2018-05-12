@@ -1,3 +1,9 @@
-<p>
-  search works!
-</p>
+<p>Live from search.component.html</p>
+
+<div class="search">
+  <h2>Stock Search</h2>
+  <input [(ngModel)]= "input" (keyup.enter)="search()">
+  <button (click)="search()">Search Ticker</button>
+</div>
+
+<p>Stock Results: {{ "results when I get them" }}</p>

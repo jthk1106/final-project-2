@@ -9,9 +9,10 @@ export class StockService {
     end: "&outputsize=compact&apikey=Y1UPJCU22ZH52Z7Z"
   constructor(private http: HttpClient) {
       
-      getData(){
+  }
+  
+  getData(){
           return this.http.get(this.url+this.symbol+this.end)
-      }
   }
 
 }
