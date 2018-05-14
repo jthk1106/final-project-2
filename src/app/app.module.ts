@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { StockService } from './stock.service';
 import { MainComponent } from './main/main.component';
 import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule, ClarityModule, HttpClientModule, FormsModule

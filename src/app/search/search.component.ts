@@ -7,8 +7,10 @@ import { StockService } from '../stock.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  results: '';
-  input: any;
+  results: any;
+  input: '';
+  data: any;
+  lastRefreshed: any;
   
   constructor(private _stock: StockService) { 
     
@@ -20,10 +22,14 @@ export class SearchComponent implements OnInit {
   
   search(){
       this._stock.getData().subscribe( data => {
-        console.log(data)
-        //this.results = data
-        //console.log(this.results)
+        this.results = data
+        console.log("results", this.results)
         //this.returnedPhone = this.returnedData.phone_number
+        console.log(this.results["Meta Data"]["3. Last Refreshed"])
+        
+        this.lastRefreshed = this.results["Meta Data"]["3. Last Refreshed"]
+        console.log("lastRefreshed", this.lastRefreshed)
+        console.log(this.results["Time Series (Daily)"][this.lastRefreshed]["1. open"])
       })
   }
 

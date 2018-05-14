@@ -6,4 +6,8 @@
   <button (click)="search()">Search Ticker</button>
 </div>
 
-<p>Stock Results: {{ "results when I get them" }}</p>
+<p>{{ results["Meta Data"]["2. Symbol"] }} Daily Price Results: </p>
+<p>Open: {{ results["Time Series (Daily)"][this.lastRefreshed]["1. open"] }}</p>
+<p>High: {{ results["Time Series (Daily)"][this.lastRefreshed]["2. high"] }}</p>
+<p>Low: {{ results["Time Series (Daily)"][this.lastRefreshed]["3. low"] }}</p>
+<p>Close: {{ results["Time Series (Daily)"][this.lastRefreshed]["4. close"] }}</p>
