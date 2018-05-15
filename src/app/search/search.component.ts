@@ -8,7 +8,7 @@ import { StockService } from '../stock.service';
 })
 export class SearchComponent implements OnInit {
   results: any;
-  input: '';
+  symbol: '';
   data: any;
   lastRefreshed: any;
   
@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   }
   
   search(){
-      this._stock.getData().subscribe( data => {
+      this._stock.getData(this.symbol).subscribe( data => {
         this.results = data
         console.log("results", this.results)
         //this.returnedPhone = this.returnedData.phone_number

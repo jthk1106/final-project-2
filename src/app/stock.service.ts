@@ -13,10 +13,15 @@ export class StockService {
   constructor(private http: HttpClient) {
       
   }
-  
+  /* demo return
   getData(){
           return this.http.get(this.demo)
           //return this.http.get(this.url+input+this.end)
   }
-
+  */
+  getData(symbol){
+          console.log("stock service concatenation", this.url+symbol+this.end)
+          return this.http.get(this.url+symbol+this.end)
+          //return this.http.get(this.url+input+this.end)
+  }
 }
