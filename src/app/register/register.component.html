@@ -1,3 +1,48 @@
-<p>
-  register works!
-</p>
+<p>register works!</p>
+
+<h1>Register</h1>
+
+<div class="register">
+    <div>
+        <input [(ngModel)]='user.firstName' type="text" placeholder="First Name" [ngModelOptions]="{standalone: true}">First Name
+    </div>
+    <div>
+        <input [(ngModel)]='user["lastName"]' type="text" placeholder="Last Name" [ngModelOptions]="{standalone: true}">Last Name
+    </div>
+    <div>
+        <input [(ngModel)]='user["email"]' type="text" placeholder="Email" [ngModelOptions]="{standalone: true}">Email
+    </div>
+    <div>
+        <input [(ngModel)]='user["password"]' type="text" placeholder="Password" [ngModelOptions]="{standalone: true}">Password
+    </div>
+    <button (click)="register()">Submit</button>
+</div>
+
+<div class="login-wrapper">
+    <form class="login">
+        <label class="title">
+            <h3 class="welcome">Welcome to</h3>
+            Guaranteed To Be Rich Based On Your Decisions Stock Search
+            <h5 class="hint">Register your new account</h5>
+        </label>
+        <div class="login-group">
+            <input [(ngModel)]='user.firstName' type="text" placeholder="First Name" [ngModelOptions]="{standalone: true}">
+            <input [(ngModel)]='user["lastName"]' type="text" placeholder="Last Name" [ngModelOptions]="{standalone: true}">
+            <input [(ngModel)]='user["email"]' type="text" placeholder="Email" [ngModelOptions]="{standalone: true}">
+            <input [(ngModel)]='user["password"]' type="password" placeholder="Password" [ngModelOptions]="{standalone: true}">
+            <input class="username" type="text" id="login_username" placeholder="Email" >
+            <input class="password" type="password" id="login_password" placeholder="Password" >
+            <div class="checkbox">
+                <input type="checkbox" id="rememberme">
+                <label for="rememberme">
+                    Remember me
+                </label>
+            </div>
+            <div class="error active">
+                Invalid user name or password
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+            <a href="javascript://" class="signup">Forgot Password?</a>
+        </div>
+    </form>
+</div>

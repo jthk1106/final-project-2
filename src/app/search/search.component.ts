@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit {
   symbol: '';
   data: any;
   lastRefreshed: any;
+  dates: any;
   
   constructor(private _stock: StockService) { 
     
@@ -29,7 +30,10 @@ export class SearchComponent implements OnInit {
         
         this.lastRefreshed = this.results["Meta Data"]["3. Last Refreshed"]
         console.log("lastRefreshed", this.lastRefreshed)
-        console.log(this.results["Time Series (Daily)"][this.lastRefreshed]["1. open"])
+        console.log("open property", this.results["Time Series (Daily)"][this.lastRefreshed]["1. open"])
+        //ngIf this.results["Time Series (Daily)"], let 
+        //this.dates = this.results["Time Series (Daily)"]
+        //console.log(this.dates)
       })
   }
 

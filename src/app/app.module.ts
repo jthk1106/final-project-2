@@ -10,6 +10,8 @@ import { MainComponent } from './main/main.component';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { routes } from './router';
+import { AppUserService } from './app-user.service';
 
 
 @NgModule({
@@ -21,10 +23,10 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent
   ],
   imports: [
-    BrowserModule, ClarityModule, HttpClientModule, FormsModule
+    BrowserModule, ClarityModule, HttpClientModule, FormsModule, routes
   ],
   providers: [
-    StockService  
+    StockService, AppUserService   
   ],
   bootstrap: [AppComponent]
 })
