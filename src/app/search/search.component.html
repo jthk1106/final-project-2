@@ -1,3 +1,7 @@
+<head>
+  <script src="node_modules/chart.js/src/chart.js"></script>
+</head>
+
 <p>Live from search.component.html</p>
 
 <div class="search">
@@ -5,7 +9,11 @@
   <input [(ngModel)]= "symbol" (keyup.enter)="search()">
   <button (click)="search()">Search Ticker</button>
 </div>
-
+<!--
+<div *ngIf="results['Time Series (Daily)']">
+  <div *ngFor="let property of results['Time Series (Daily)']">Daily: {{ property }}</div>
+</div>
+-->
 <p>{{ results["Meta Data"]["2. Symbol"] }} Daily Price Results: </p>
 <p>Open: {{ results["Time Series (Daily)"][this.lastRefreshed]["1. open"] }}</p>
 <p>High: {{ results["Time Series (Daily)"][this.lastRefreshed]["2. high"] }}</p>

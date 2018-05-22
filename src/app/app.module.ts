@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ClarityModule } from "@clr/angular";
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { StockService } from './stock.service';
@@ -12,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { routes } from './router';
 import { AppUserService } from './app-user.service';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
@@ -20,10 +22,11 @@ import { AppUserService } from './app-user.service';
     MainComponent,
     SearchComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChartComponent
   ],
   imports: [
-    BrowserModule, ClarityModule, HttpClientModule, FormsModule, routes
+    BrowserModule, ClarityModule, HttpClientModule, FormsModule, routes, ChartsModule
   ],
   providers: [
     StockService, AppUserService   

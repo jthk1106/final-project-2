@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+
 
 
 @Injectable()
@@ -23,5 +25,9 @@ export class StockService {
           console.log("stock service concatenation", this.url+symbol+this.end)
           return this.http.get(this.url+symbol+this.end)
           //return this.http.get(this.url+input+this.end)
+            .pipe( data: any => {
+              this.results = data
+              console.log("pipe results", this.results["Meta Data"]["2. Symbol"])
+            })
   }
 }
