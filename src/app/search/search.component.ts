@@ -23,35 +23,33 @@ export class SearchComponent implements OnInit {
   }
   
   search(){
-      /*working on pipe
-      this._stock.getData(this.symbol)
-        .pipe( data => {
-          this.results = data
-          console.log("see results object", this.results["Meta Data"]["2. Symbol"])
-      */
       
-      this._stock.getData(this.symbol).subscribe( data => {
-        this.results = data
-        console.log("results", this.results)
+      this._stock.getData(this.symbol)
+        .subscribe( data => {
+          this.results = data
+          console.log("last from search component", data)
+          // console.log("results", this.results['5-22-18']['1. open'])
+          
         
-        //approach without pipe
-        //this.returnedPhone = this.returnedData.phone_number
-        console.log(this.results["Meta Data"]["3. Last Refreshed"])
-        
-        //access 'last refreshed date' to display it's 'open' property
-        this.lastRefreshed = this.results["Meta Data"]["3. Last Refreshed"]
-        console.log("lastRefreshed", this.lastRefreshed)
-        console.log("open property", this.results["Time Series (Daily)"][this.lastRefreshed]["1. open"])
-        
-        
-        let dateProperties = Object.keys(this.results["Time Series (Daily)"]);
-        let something = [];
-        for (let date of dateProperties) { 
-          something.push(dateProperties[date]);
-          console.log("dates array", something)
-        }
-        
-      })
+          /*
+          //approach without pipe
+          //this.returnedPhone = this.returnedData.phone_number
+          console.log(this.results["Meta Data"]["3. Last Refreshed"])
+          
+          //access 'last refreshed date' to display it's 'open' property
+          this.lastRefreshed = this.results["Meta Data"]["3. Last Refreshed"]
+          console.log("lastRefreshed", this.lastRefreshed)
+          console.log("open property", this.results["Time Series (Daily)"][this.lastRefreshed]["1. open"])
+          
+          //get object properties and push them into an empty array
+          let dateProperties = Object.keys(this.results["Time Series (Daily)"]);
+          let something = [];
+          for (let date of dateProperties) { 
+            something.push(dateProperties[date]);
+            console.log("dates array", something)
+          }
+          */
+        })
       
   }
 

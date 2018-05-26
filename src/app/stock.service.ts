@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { filter, map, reduce, pluck } from 'rxjs/operators';
 
 
 
@@ -22,18 +24,32 @@ export class StockService {
           //return this.http.get(this.url+input+this.end)
   }
   */
-  /*
+  
   getData(symbol){
-          let openValues = []
+          let dateValues = []
+          
           console.log("stock service concatenation", this.url+symbol+this.end)
-          return this.http.get(this.url+symbol+this.end),
-            .pipe( data => {
-              this.results = data
-              console.log("pipe results", this.results["Meta Data"]["2. Symbol"])
-              },
-              pluck("Time Series (Daily)")
+          return this.http.get(this.url+symbol+this.end)
+            .pipe( 
+              pluck("Time Series (Daily)"),
+              map( data => {
+                let openValues = []
+                console.log('stock service data', data);
+                for(let key in data){ 
+                  dateValues.push(key) 
+                }
+                
+                console.log("date values", dateValues)
+
+                for(let key in data){
+                  openValues.push(data[key]["1. open"])
+                }
+                
+                console.log("open values", openValues)
+                return openValues
+              })
             )
-   //pluck 'Time Series (Daily)' object and 'for(key in data){ openValues.push }'
+   //pluck 'Time Series (Daily)' object and 'for(let key in data){ openValues.push }'
   }
-  */
+  
 }

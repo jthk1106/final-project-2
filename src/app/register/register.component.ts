@@ -9,19 +9,23 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-registerUser: any = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  password: ""
-}
+  registerUser: any = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  }
+  
+  results: any;
 
-  constructor(private userService: AppUserService, private _router: Router) { }
+  constructor(private _userService: AppUserService, private _router: Router) { }
     register(){
-      console.log("register executed", this.registerUser)
-      this.userService.postData(this.registerUser)
-        .subscribe( data => 
-          console.log("registration response", data),
+      console.log("register executed", this.registerUser);
+      this._userService.postData(this.registerUser)
+        .subscribe( (data:any) => {
+          console.log("registration response", data);
+          sessionStorage.setItem('token', data.token);
+          sessionStorage.setItem('userId', data.userId);
           /*error = hide(){
                       var x = document.getElementById("error active");
                       if (x.style.display === "none") {
@@ -29,9 +33,10 @@ registerUser: any = {
                       } else {
                           x.style.display = "none"; 
                     }
-          }*/
-        ) //try error method after, assign to a variable that will perform alert for taken user
+            }*/
+          //try error method after, assign to a variable that will perform alert for taken user
           this._router.navigate([`/login`]);
+        })
     }
 
   ngOnInit() {
