@@ -43,7 +43,7 @@ export class StockService {
 
                 for(let key in data){
                   //Number(data[key]["1. open"])
-                  openValues.push(Number(data[key]["1. open"]))
+                  openValues.push(Number((data[key]["1. open"]).slice(0, 3)))
                 }
                 
                 console.log("open values", openValues)
