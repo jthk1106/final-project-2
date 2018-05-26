@@ -42,7 +42,8 @@ export class StockService {
                 console.log("date values", dateValues)
 
                 for(let key in data){
-                  openValues.push(data[key]["1. open"])
+                  //Number(data[key]["1. open"])
+                  openValues.push(Number(data[key]["1. open"]))
                 }
                 
                 console.log("open values", openValues)
