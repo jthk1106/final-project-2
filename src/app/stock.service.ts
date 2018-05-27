@@ -27,13 +27,13 @@ export class StockService {
   
   getData(symbol){
           let dateValues = []
-          
+          let openValues = []
           console.log("stock service concatenation", this.url+symbol+this.end)
           return this.http.get(this.url+symbol+this.end)
             .pipe( 
               pluck("Time Series (Daily)"),
               map( data => {
-                let openValues = []
+                
                 console.log('stock service data', data);
                 for(let key in data){ 
                   dateValues.push(key) 
@@ -43,14 +43,14 @@ export class StockService {
 
                 for(let key in data){
                   //Number(data[key]["1. open"])
-                  openValues.push(Number((data[key]["1. open"]).slice(0, 3)))
+                  //openValues.push(Number((data[key]["1. open"]).slice(0, 3)))
+                  openValues.push(Math.round(Number(data[key]["1. open"]))
                 }
                 
                 console.log("open values", openValues)
                 return openValues
               })
             )
-   //pluck 'Time Series (Daily)' object and 'for(let key in data){ openValues.push }'
   }
   
 }
