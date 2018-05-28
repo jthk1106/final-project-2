@@ -12,6 +12,9 @@ export class SearchComponent implements OnInit {
   symbol: any = '';
   data: any;
   lastRefreshed: any;
+  chartData: Array<any> = [
+  {data: [], label: 'Open'}
+  ];
   
   
   constructor(private _stock: StockService) { 
@@ -29,8 +32,11 @@ export class SearchComponent implements OnInit {
           this.results = data
           console.log("last from search component", data)
           // console.log("results", this.results['5-22-18']['1. open'])
+          for(let value of data){
+            this.chartData[0]["data"].push(value)
+          }
           
-        
+          console.log(this.chartData)
           /*
           //approach without pipe
           //this.returnedPhone = this.returnedData.phone_number
