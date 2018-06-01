@@ -14,7 +14,8 @@ export class StockService {
     end: string = "&outputsize=compact&apikey=Y1UPJCU22ZH52Z7Z"
     demo: string = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo"
     results: any;
-  
+    dateValues: any = [];
+    
   constructor(private http: HttpClient) {
       
   }
@@ -26,29 +27,29 @@ export class StockService {
   */
   
   getData(symbol){
-          let dateValues = []
-          let openValues = []
           console.log("stock service concatenation", this.url+symbol+this.end)
           return this.http.get(this.url+symbol+this.end)
             .pipe( 
               pluck("Time Series (Daily)"),
               map( data => {
-                
+                //let dateValues = []
+                let openValues = []
                 console.log('stock service data', data);
                 for(let key in data){ 
-                  dateValues.push(key) 
+                  this.dateValues.push(key) 
                 }
                 
-                console.log("date values", dateValues)
+                console.log("date values", this.dateValues)
 
                 for(let key in data){
                   //Number(data[key]["1. open"])
                   //openValues.push(Number((data[key]["1. open"]).slice(0, 3)))
-                  openValues.push(Math.round(Number(data[key]["1. open"]))
+                  openValues.push(Math.round(Number(data[key]["1. open"])))
                 }
                 
                 console.log("open values", openValues)
                 return openValues
+               
               })
             )
   }

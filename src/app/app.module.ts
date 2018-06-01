@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { routes } from './router';
 import { AppUserService } from './app-user.service';
 import { ChartComponent } from './chart/chart.component';
+import { SaveService } from './save.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { ChartComponent } from './chart/chart.component';
     BrowserModule, ClarityModule, HttpClientModule, FormsModule, routes, ChartsModule
   ],
   providers: [
-    StockService, AppUserService   
+    StockService, AppUserService, SaveService 
   ],
   bootstrap: [AppComponent]
 })
