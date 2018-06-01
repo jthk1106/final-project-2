@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StockService } from '../stock.service';
 import { Observable } from 'rxjs/Observable';
 import { ChartsModule } from 'ng2-charts';
+import { SaveService } from '../save.service';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,7 @@ import { ChartsModule } from 'ng2-charts';
 export class SearchComponent implements OnInit {
   results: any;
   symbol: any = '';
-  ticker: any = '';
+  saveSymbol: any = '';
   data: any;
   lastRefreshed: any;
   chartData: Array<any> = [
@@ -19,6 +20,10 @@ export class SearchComponent implements OnInit {
   ];
   chartLabels: any = [];
   display: any = false;
+  stockObject: any = {
+    "ticker": "",
+    "id": ""
+  }
   
     // lineChart
   public lineChartData:Array<any> = [
@@ -80,7 +85,7 @@ export class SearchComponent implements OnInit {
   }
 
   
-  constructor(private _stock: StockService) { 
+  constructor(private _stock: StockService, private _save: SaveService) { 
   }
 
   ngOnInit() {
@@ -102,7 +107,7 @@ export class SearchComponent implements OnInit {
           
           this.display = true;
           
-          this.ticker = this.symbol
+          this.saveSymbol = this.symbol
           this.symbol = ''
           
           console.log("dateValues", this._stock.dateValues)
@@ -126,6 +131,16 @@ export class SearchComponent implements OnInit {
           */
         })
       
+  }
+  
+  save(){
+    
+    this._save.saveStock(this.stockObject)
+      .subscribe( (data:any) => {
+        let id = sessionStorage.getItem(this.data.userId);
+        this.stockObject["ticker"] = this.saveSymbol);
+        this.stockObject["id"] = id;
+      })
   }
 
 }

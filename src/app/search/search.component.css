@@ -1,0 +1,21 @@
+.search{
+    display: flex;
+    justify-content: center;
+}
+
+.save.group{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.search.group{
+    display: flex;
+    flex-direction: column;
+}
+
+.search.input{
+    display: flex;
+    justify-content: center;
+}
+

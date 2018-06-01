@@ -1,0 +1,11 @@
+.header-nav{
+    margin-left: auto;
+}
+
+.nav-link.nav-text.login{
+    color: rgb(255, 255, 140);
+}
+
+.nav-link.nav-text.register{
+    color: rgb(255, 180, 0);
+}

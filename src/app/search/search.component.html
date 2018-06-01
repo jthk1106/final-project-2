@@ -2,16 +2,19 @@
   <script src="node_modules/chart.js/src/chart.js"></script>
 </head>
 
+<div class="search group">
+  <div class="search">
+    <h2>Remember YOLO</h2>
+  </div>
+  <div class="search input">  
+    <input [(ngModel)]="symbol" (keyup.enter)="search()">
+    <button class='button' (click)="search()">Search Ticker</button>
+  </div>
 
-<div class="search">
-  <h2>Stock Search</h2>
-  <input [(ngModel)]= "symbol" (keyup.enter)="search()">
-  <button class='button' (click)="search()">Search Ticker</button>
-</div>
-
-<div>
-  <span>{{ ticker }}</span>
-  <button class='button'>Save to favorites</button>
+  <div class="save group" *ngIf="display">
+    <span>Ticker: {{ saveSymbol }}</span>
+    <button class='button' (click)="save()">Save to favorites</button>
+  </div>
 </div>
 
 <div *ngIf="display">
@@ -38,7 +41,7 @@
         <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
       </tr>
     </table>
-    <button (click)="randomize()">DO NOT TOUCH</button>
+    <button (click)="randomize()">DO NOT TOUCH!</button>
   </div>
   </div>
 </div>
