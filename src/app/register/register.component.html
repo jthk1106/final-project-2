@@ -23,7 +23,7 @@
         <label class="title">
             <h3 class="welcome">REGISTER</h3>
             YOLO <br>Stock Finder
-            <h5 class="hint">Register your new account</h5>
+            
         </label>
         
         <div class="login-group">
@@ -33,17 +33,12 @@
             <input [(ngModel)]='registerUser["password"]' type="password" placeholder="Password" [ngModelOptions]="{standalone: true}">
             <input type="text" placeholder="Credit Card Number (helpful, but not required)">
             
-            <div class="checkbox">
-                <input type="checkbox" id="rememberme">
-                <label for="rememberme">
-                    Remember me
-                </label>
-            </div>
+            
         <!--    <div class="error active" id="error active">
                 Invalid user name or password
             </div>    -->
             <button type="submit" class="btn btn-primary" (click)="register()">SUBMIT</button>
-            <a href="http://jeremy-spring-2018-phortonssf.c9users.io:8081/search" class="signup">Forgot Password? Too Bad, Search Anyway</a>
+            <a href="http://jeremy-spring-2018-phortonssf.c9users.io:8081/search" class="signup">Just Search</a>
         </div>
     </form>
 </div>

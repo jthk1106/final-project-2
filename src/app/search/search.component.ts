@@ -92,7 +92,8 @@ export class SearchComponent implements OnInit {
   }
   
   search(){
-      //let display = false;
+      this.chartData = [{data: [], label: 'Opening Dollar Values'}];
+      this.display = false;
       this._stock.getData(this.symbol)
         .subscribe( data => {
           this.results = data
@@ -132,7 +133,7 @@ export class SearchComponent implements OnInit {
         })
       
   }
-  
+  /*
   save(){
     
     this._save.saveStock(this.stockObject)
@@ -142,5 +143,5 @@ export class SearchComponent implements OnInit {
         this.stockObject["id"] = id;
       })
   }
-
+  */
 }

@@ -19,3 +19,8 @@
     justify-content: center;
 }
 
+.btn.btn-primary{
+    color: black;
+    background-color: yellow;
+    border-color: yellow;
+}

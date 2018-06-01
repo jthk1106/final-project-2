@@ -8,7 +8,7 @@
   </div>
   <div class="search input">  
     <input [(ngModel)]="symbol" (keyup.enter)="search()">
-    <button class='button' (click)="search()">Search Ticker</button>
+    <button class='btn btn-primary' (click)="search()">Search Ticker</button>
   </div>
 
   <div class="save group" *ngIf="display">

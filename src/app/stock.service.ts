@@ -27,6 +27,7 @@ export class StockService {
   */
   
   getData(symbol){
+          this.dateValues = [];
           console.log("stock service concatenation", this.url+symbol+this.end)
           return this.http.get(this.url+symbol+this.end)
             .pipe( 
