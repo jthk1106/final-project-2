@@ -102,7 +102,7 @@ export class SearchComponent implements OnInit {
           for(let value of data){
             this.chartData[0]["data"].push(value)
           }
-          console.log("chartData from search", this.chartData)
+          console.log("chartData from search component", this.chartData)
           this.lineChartData = this.chartData;
           this.lineChartLabels = this._stock.dateValues;
           
@@ -111,7 +111,7 @@ export class SearchComponent implements OnInit {
           this.saveSymbol = this.symbol
           this.symbol = ''
           
-          console.log("dateValues", this._stock.dateValues)
+          console.log("dateValues from search component", this._stock.dateValues)
           /*
           //approach without pipe
           //this.returnedPhone = this.returnedData.phone_number
