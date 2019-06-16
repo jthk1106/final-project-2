@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
     login(){
       console.log("login() executed", this.loginUser)
       this.userService.loginData(this.loginUser)
-        .subscribe( (data:any) => {
+        .subscribe( (data: any) => {
           console.log("login response", data);
           sessionStorage.setItem('token', data.token);
           sessionStorage.setItem('userId', data.userId);
           //get session storage item "let token = sessionStorage.getItem('token', this.results.token)"
-        
+
       })
       this._router.navigate([`/search`]);
     }
